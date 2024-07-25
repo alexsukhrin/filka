@@ -11,7 +11,7 @@ Download from https://github.com/alexsukhrin/filka
 
 ## Usage
 
-Start Application
+Start kafka
 
     $ docker-compose up -d
 

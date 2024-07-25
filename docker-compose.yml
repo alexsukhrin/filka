@@ -30,13 +30,19 @@ services:
       - kafka-net
   filka:
     build: .
+    hostname: filka
+    container_name: filka
     volumes:
       - .:/usr/src/app
     ports:
       - "4000:4000"
+    depends_on:
+      - broker
     environment:
-      KAFKA_HOST: PLAINTEXT://broker:29092
+      KAFKA_HOST: "broker:29092"
       SERVER_PORT: 4000
+    networks:
+      - kafka-net
 networks:
   kafka-net:
     driver: bridge

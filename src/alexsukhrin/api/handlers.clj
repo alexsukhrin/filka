@@ -13,11 +13,11 @@
   (let [body
         (if (nil? id)
           (get-filters)
-          ((try
-             (get-messages (Integer/parseInt id))
-             (catch NumberFormatException e
-               {:status 400
-                :body "Invalid ID format"}))))]
+          (try
+            (get-messages (Integer/parseInt id))
+            (catch NumberFormatException e
+              {:status 400
+               :body "Invalid ID format"})))]
     {:status 200
      :body body}))
 

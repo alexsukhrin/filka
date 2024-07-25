@@ -13,7 +13,7 @@
         org.testcontainers/testcontainers {:mvn/version "1.19.3"}
         org.testcontainers/kafka {:mvn/version "1.19.3"}}
  :aliases
- {:run-m {:main-opts ["-m" "alexsukhrin.filka"]}
+ {:run-m {:main-opts ["-m" "alexsukhrin.main"]}
   :run-x {:ns-default alexsukhrin.filka
           :exec-fn greet
           :exec-args {:name "Clojure"}}
