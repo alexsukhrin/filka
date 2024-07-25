@@ -1,6 +1,9 @@
 # Filka
 
-Application create new filter kafka stream.
+HTTP service for filtering messages from Kafka.
+
+The user can add a filter and the system starts to remember 
+all new relevant messages to return them later on request.
 
 ## Installation
 
