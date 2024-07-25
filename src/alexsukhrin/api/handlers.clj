@@ -10,7 +10,6 @@
 
 (defn get-filters-or-messages
   [id]
-  (prn id)
   (let [body
         (if (nil? id)
           (get-filters)
