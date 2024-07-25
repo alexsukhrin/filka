@@ -15,6 +15,8 @@ Start kafka
 
     $ docker-compose up -d
 
+This command starts the application using Docker. The `-d` flag runs the containers in detached mode, allowing you to continue using your terminal.
+
 Run the project's tests (they'll fail until you edit them):
 
     $ clojure -T:build test
