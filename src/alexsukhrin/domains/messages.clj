@@ -1,6 +1,5 @@
 (ns alexsukhrin.domains.messages
   (:require
-   [clojure.core.async :as async :refer [go-loop]]
    [clojure.string :as str]
    [alexsukhrin.domains.kafka.consumer :as kc]
    [alexsukhrin.domains.kafka.config :as kf]))
@@ -30,22 +29,20 @@
 
     (.subscribe consumer topics)
 
-    (go-loop []
-      (let [records (.poll consumer 100)]
-        (doseq [record records]
-          (doseq [[id filter] @filters]
-            (when (= (:topic filter) (.topic record))
-              (process-message id (.value record)))))
-        (recur)))))
+    (future
+      (while true
+        (let [records (.poll consumer 100)]
+          (doseq [record records]
+            (doseq [[id filter] @filters]
+              (when (= (:topic filter) (.topic record))
+                (process-message id (.value record))))))))))
 
 (defn start-consumer
   []
   (let
    [kafka-host
     (kf/get-kafka-host)]
-
-    (async/thread
-      (consume-messages kafka-host))))
+    (consume-messages kafka-host)))
 
 (defn add-filter
   [topic query]

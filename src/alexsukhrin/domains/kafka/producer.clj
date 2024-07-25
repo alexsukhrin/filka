@@ -30,6 +30,6 @@
     msg
     "python 3"]
 
-    (.send producer (ProducerRecord. "books" "python")))
+    (.send producer (ProducerRecord. "books" "python 3")))
 
   :end)

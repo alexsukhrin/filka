@@ -5,7 +5,6 @@
         ring/ring-json {:mvn/version "0.5.1"}
         ring-logger/ring-logger {:mvn/version "1.1.1"}
         compojure/compojure {:mvn/version "1.7.1"}
-        org.clojure/core.async {:mvn/version "1.6.681"}
         mount/mount {:mvn/version "0.1.18"}
         org.clojure/tools.logging {:mvn/version "1.2.4"}
         org.apache.kafka/kafka-clients {:mvn/version "3.7.1"}
